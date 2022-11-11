@@ -22,6 +22,6 @@ jobs:
       
       - name: copy git
 
-        run: git clone https://github.com/NH-hackers/scbomb.git
+        run: git clone https://github.com/NH-hackers/scbomb
 
              
