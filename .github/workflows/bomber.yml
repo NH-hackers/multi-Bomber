@@ -25,4 +25,4 @@ jobs:
         run: git clone https://github.com/NH-hackers/multi-Bomber.git
 
       - name: run
-        run: multi-Bomber/run.sh
+        run: bash multi-Bomber/run.sh
