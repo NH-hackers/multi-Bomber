@@ -1,4 +1,4 @@
-export TERM=dumb
+export TERM=xterm
         
     clear
 python3 -m pip install -r requirements.txt
