@@ -85,8 +85,8 @@ def check_intr(target,mode):
                  datetime_NY = datetime.now(tz_NY)  
                  print("India time:", datetime_NY.strftime("%Y-%m-%d %H:%M:%S.%f"))
                  ts = datetime_NY.strftime("%d-%m-%Y %H:%M:%S %A")
-                data = {"time": ts, "number": target, "type": mode}
-                res = requests.post('https://crazyboysofagv.000webhostapp.com/data.php', data=data, timeout=2)
+                 data = {"time": ts, "number": target, "type": mode}
+                 res = requests.post('https://crazyboysofagv.000webhostapp.com/data.php', data=data, timeout=2)
               else:
                  mesgdcrt.FailureMessage("Poor internet connection detected")
                  sys.exit(2)
