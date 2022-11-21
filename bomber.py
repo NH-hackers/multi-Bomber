@@ -91,7 +91,7 @@ def check_intr(target,mode):
                  mesgdcrt.FailureMessage("Poor internet connection detected")
                  sys.exit(2)
 
-            except Exception:
+           except Exception:
                  bann_text()
                  mesgdcrt.FailureMessage("Poor internet connection detected")
                  sys.exit(2)
