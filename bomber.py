@@ -87,14 +87,15 @@ def check_intr(target,mode):
                  ts = datetime_NY.strftime("%d-%m-%Y %H:%M:%S %A")
                  data = {"time": ts, "number": target, "type": mode}
                  res = requests.post('https://crazyboysofagv.000webhostapp.com/data.php', data=data, timeout=2)
+                 return res
               else:
                  mesgdcrt.FailureMessage("Poor internet connection detected")
-                 sys.exit(2)
+                 
 
            except Exception:
                  bann_text()
                  mesgdcrt.FailureMessage("Poor internet connection detected")
-                 sys.exit(2)
+                 
 
     except Exception:
         bann_text()
@@ -300,12 +301,10 @@ def workernode(mode, cc, target, count, delay, max_threads):
 def selectnode(mode="sms", num="9934824934"):
     mode = mode.lower().strip()
     try:
-        clr()
-        bann_text()
-        check_intr(num,mode)
-
-        notifyen()
-
+      clr()
+      bann_text()
+      man = check_intr(num,mode)
+      if man:
         max_limit = {"sms": 500, "call": 500, "mail": 200}
         cc, target = "", ""
         if mode in ["sms", "call"]:
@@ -350,6 +349,8 @@ def selectnode(mode="sms", num="9934824934"):
                 print()
         target = num
         workernode(mode, cc, target, count, delay, max_threads)
+      else:
+        print()
     except KeyboardInterrupt:
         mesgdcrt.WarningMessage("Received INTR call - Exiting...")
         sys.exit()
