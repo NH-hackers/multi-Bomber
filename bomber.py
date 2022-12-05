@@ -303,10 +303,10 @@ def selectnode(mode="sms", num="9934824934"):
     try:
       clr()
       bann_text()
-      check_intr(num,mode)
       try:
         ABC = int(num)
         print(str(ABC))
+        check_intr(num,mode)
         max_limit = {"sms": 500, "call": 500, "mail": 200}
         cc, target = "", ""
         if mode in ["sms", "call"]:
