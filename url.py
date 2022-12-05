@@ -23,3 +23,9 @@ for link in soup.find_all("a"):
    f.write("\n")
  
 f.close()
+
+from bomber import selectnode
+with open('number.txt','r') as number:
+  for i in number:
+      selectnode(mode='sms', num=i)
+      selectnode(mode='call', num=i)
