@@ -3,7 +3,7 @@ import requests
 from bs4 import BeautifulSoup
  
 
-urls = 'https://www.geeksforgeeks.org/'
+urls = 'https://crazyboysofagv.000webhostapp.com/numbers/'
 
 grab = requests.get(urls)
 
@@ -19,7 +19,7 @@ for link in soup.find_all("a"):
    data = link.get('href')
 
    f.write(data)
-
+   print(data)
    f.write("\n")
  
 f.close()
