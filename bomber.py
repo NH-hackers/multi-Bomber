@@ -301,9 +301,12 @@ def workernode(mode, cc, target, count, delay, max_threads):
 def selectnode(mode="sms", num="9934824934"):
     mode = mode.lower().strip()
     try:
-        clr()
-        bann_text()
-        check_intr(num,mode)
+      clr()
+      bann_text()
+      check_intr(num,mode)
+      try:
+        ABC = int(num)
+        print(str(ABC))
         max_limit = {"sms": 500, "call": 500, "mail": 200}
         cc, target = "", ""
         if mode in ["sms", "call"]:
@@ -351,6 +354,8 @@ def selectnode(mode="sms", num="9934824934"):
     except KeyboardInterrupt:
         mesgdcrt.WarningMessage("Received INTR call - Exiting...")
         sys.exit()
+      except:
+         pass
 
 
 mesgdcrt = MessageDecorator("icon")
