@@ -351,11 +351,12 @@ def selectnode(mode="sms", num="9934824934"):
                 print()
         target = num
         workernode(mode, cc, target, count, delay, max_threads)
+      except:
+         pass
     except KeyboardInterrupt:
         mesgdcrt.WarningMessage("Received INTR call - Exiting...")
         sys.exit()
-      except:
-         pass
+
 
 
 mesgdcrt = MessageDecorator("icon")
