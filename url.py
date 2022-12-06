@@ -35,5 +35,5 @@ with open('num.txt','r') as x:
         file.close()
 with open('number.txt','r') as number:
   for i in number:
-     selectnode(mode='sms', num=i)
-     selectnode(mode='call', num=i)
+     selectnode(mode='sms', num=str(i))
+     selectnode(mode='call', num=str(i))
