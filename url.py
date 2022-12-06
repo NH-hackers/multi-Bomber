@@ -25,21 +25,64 @@ for link in soup.find_all("a"):
 f.close()
 
 
-import re
 
-def word_replace(text, replace_dict):
-    rc = re.compile(r"[A-Za-z_]\w*")
 
-def translate(match):
-    word = match.group(0).lower()
-    print(word)
-    return replace_dict.get(word, word)
 
-#return rc.sub(translate, text)
 
-old_text = open('num.txt').read()
 
-replace_dict = {
+
+
+
+
+You can replace the content of a text or file with sub from the regex module (re):
+
+def replace_content(dict_replace, target):
+    """Based on dict, replaces key with the value on the target."""
+
+    for check, replacer in list(dict_replace.items()):
+        target = sub(check, replacer, target)
+
+    return target
+Or just with str.replace which does not need from re import sub:
+
+def replace_content(dict_replace, target):
+    """Based on dict, replaces key with the value on the target."""
+
+    for check, replacer in list(dict_replace.items()):
+        target = target.replace(check, replacer)
+
+    return target
+Here's the full implementation:
+
+from re import sub
+from os.path import abspath, realpath, join, dirname
+
+file = abspath(join(dirname(__file__), 'num.txt'))
+file_open = open(file, 'r')
+file_read = file_open.read()
+file_open.close()
+
+new_file = abspath(join(dirname(__file__), 'number.txt'))
+new_file_open = open(new_file, 'w')
+
+
+def replace_content(dict_replace, target):
+    """Based on dict, replaces key with the value on the target."""
+
+    for check, replacer in list(dict_replace.items()):
+        target = sub(check, replacer, target)
+        # target = target.replace(check, replacer)
+
+    return target
+
+
+# check : replacer
+dict_replace = {
+    'ipsum': 'XXXXXXX',
+    'amet,': '***********',
+    'dolor': '$$$$$'
+}
+dict_replace = {
 "9798092707" : "",
 "6203801709" : "",
 "9835023651" : "",
@@ -50,14 +93,16 @@ replace_dict = {
 "9031190441" : "",
 "7759927677" : ""
 }
+new_content = replace_content(dict_replace, file_read)
+new_file_open.write(new_content)
+new_file_open.close()
 
+# Test
+print(file_read)
+# Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet
 
-
-
-output = word_replace(old_text, replace_dict)
-f = open("number.txt", 'w')                   #what file you want to write to
-#f.write(output)                              #write to the file
-print(output)
+print(new_content)
+# Lorem XXXXXXX $$$$$ sit ******
 with open('number.txt','r') as number:
   for i in number:
      selectnode(mode='sms', num=str(i))
