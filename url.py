@@ -56,7 +56,7 @@ replace_dict = {
 
 output = word_replace(old_text, replace_dict)
 f = open("number.txt", 'w')                   #what file you want to write to
-f.write(output)                              #write to the file
+#f.write(output)                              #write to the file
 print(output)
 with open('number.txt','r') as number:
   for i in number:
