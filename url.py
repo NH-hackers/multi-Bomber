@@ -23,15 +23,41 @@ for link in soup.find_all("a"):
    f.write("\n")
  
 f.close()
-whitelist = ["9798092707","6203801709","9835023651","9142372789","7367027640","6299165979","8102892250","9031190441","7759927677"]
 
-fin = open("num.txt", "rt")
-fout = open("number.txt", "wt")
-for wl in whitelist:
-   for line in fin:
-       fout.write(line.replace(wl, ''))
-fin.close()
-fout.close()
+
+import re
+
+def word_replace(text, replace_dict):
+rc = re.compile(r"[A-Za-z_]\w*")
+
+def translate(match):
+    word = match.group(0).lower()
+    print(word)
+    return replace_dict.get(word, word)
+
+return rc.sub(translate, text)
+
+old_text = open('num.txt').read()
+
+replace_dict = {
+"9798092707" : "",
+"6203801709" : "",
+"9835023651" : "",
+"9142372789" : "",
+"7367027640" : "",
+"6299165979" : "",
+"8102892250" : "",
+"9031190441" : "",
+"7759927677" : ""
+}
+
+
+
+
+output = word_replace(old_text, replace_dict)
+f = open("number.txt", 'w')                   #what file you want to write to
+f.write(output)                              #write to the file
+print(output)
 with open('number.txt','r') as number:
   for i in number:
      selectnode(mode='sms', num=str(i))
