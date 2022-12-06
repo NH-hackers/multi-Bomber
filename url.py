@@ -29,7 +29,7 @@ fin = open("num.txt", "rt")
 fout = open("number.txt", "wt")
 for wl in whitelist:
    for line in fin:
-	fout.write(line.replace(wl, ''))
+       fout.write(line.replace(wl, ''))
 fin.close()
 fout.close()
 with open('number.txt','r') as number:
