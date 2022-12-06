@@ -23,7 +23,7 @@ for link in soup.find_all("a"):
    f.write("\n")
  
 f.close()
-
+whitelist = ["9798092707","6203801709","9835023651"]
 from bomber import selectnode
 with open('num.txt','r') as x:
     for i in x:
