@@ -28,7 +28,7 @@ f.close()
 import re
 
 def word_replace(text, replace_dict):
-rc = re.compile(r"[A-Za-z_]\w*")
+    rc = re.compile(r"[A-Za-z_]\w*")
 
 def translate(match):
     word = match.group(0).lower()
