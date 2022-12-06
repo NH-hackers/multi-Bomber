@@ -34,7 +34,7 @@ f.close()
 
 
 
-You can replace the content of a text or file with sub from the regex module (re):
+#You can replace the content of a text or file with sub from the regex module (re):
 
 def replace_content(dict_replace, target):
     """Based on dict, replaces key with the value on the target."""
@@ -43,7 +43,7 @@ def replace_content(dict_replace, target):
         target = sub(check, replacer, target)
 
     return target
-Or just with str.replace which does not need from re import sub:
+#Or just with str.replace which does not need from re import sub:
 
 def replace_content(dict_replace, target):
     """Based on dict, replaces key with the value on the target."""
@@ -52,7 +52,7 @@ def replace_content(dict_replace, target):
         target = target.replace(check, replacer)
 
     return target
-Here's the full implementation:
+#Here's the full implementation:
 
 from re import sub
 from os.path import abspath, realpath, join, dirname
