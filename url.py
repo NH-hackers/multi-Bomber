@@ -35,7 +35,7 @@ def translate(match):
     print(word)
     return replace_dict.get(word, word)
 
-return rc.sub(translate, text)
+#return rc.sub(translate, text)
 
 old_text = open('num.txt').read()
 
