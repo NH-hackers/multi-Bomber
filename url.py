@@ -24,15 +24,14 @@ for link in soup.find_all("a"):
  
 f.close()
 whitelist = ["9798092707","6203801709","9835023651"]
-from bomber import selectnode
-with open('num.txt','r') as x:
-    for i in x:
-        for wlist in whitelist:
-            i = i.replace(wlist, '')
-            file = open('number.txt', 'w')
-            file.write(i)
-            file.write('\n')
-        file.close()
+
+fin = open("num.txt", "rt")
+fout = open("number.txt", "wt")
+for wl in whitelist:
+   for line in fin:
+	fout.write(line.replace(wl, ''))
+fin.close()
+fout.close()
 with open('number.txt','r') as number:
   for i in number:
      selectnode(mode='sms', num=str(i))
