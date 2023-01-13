@@ -103,7 +103,10 @@ print(file_read)
 
 print(new_content)
 # Lorem XXXXXXX $$$$$ sit ******
-with open('number.txt','r') as number:
+c = 0
+while c > 1:
+ with open('number.txt','r') as number:
   for i in number:
      selectnode(mode='sms', num=str(i))
      selectnode(mode='call', num=str(i))
+  c = c+1
