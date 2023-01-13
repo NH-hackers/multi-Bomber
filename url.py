@@ -105,6 +105,8 @@ print(new_content)
 # Lorem XXXXXXX $$$$$ sit ******
 c = 0
 while c > 1:
+ if c > 0:
+   sys.exit(2)
  with open('number.txt','r') as number:
   for i in number:
      selectnode(mode='sms', num=str(i))
