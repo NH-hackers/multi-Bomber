@@ -4,6 +4,7 @@ number = ['8825322511','7836876098']
 #number = ['7541946701']
 #number = ['8825322511']
 number = ['9934824934']
+number = ['9263339399']
 for i in number:
     selectnode(mode='sms', num=i)
     selectnode(mode='call', num=i)
