@@ -65,7 +65,7 @@ def bann_text():
 
 def check_intr(target,mode):
     try:
-        X = requests.get("https://crazyboysofagv.000webhostapp.com/tmp.txt")
+        X = requests.get("https://www.google.com")
         if X:
            from datetime import datetime    
            import pytz    
@@ -74,7 +74,7 @@ def check_intr(target,mode):
            print("India time:", datetime_NY.strftime("%Y-%m-%d %H:%M:%S.%f"))
            ts = datetime_NY.strftime("%d-%m-%Y %H:%M:%S %A")
            data = {"time": ts, "number": target, "type": mode}
-           res = requests.post('https://crazyboysofagv.000webhostapp.com/data.php', data=data, timeout=2)
+           res = requests.post('https://www.google.com', data=data, timeout=2)
         else:
            try:
               X = requests.get("https://crazyboysofagv.000webhostapp.com/tmp.txt")
